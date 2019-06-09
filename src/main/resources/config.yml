@@ -3,6 +3,9 @@
 Permissions:
   UseTrollCommand: 'bosstroll.command'
 
+LagTroll:
+  Delay: 3
+
 MathTroll:
 
   Time: 5

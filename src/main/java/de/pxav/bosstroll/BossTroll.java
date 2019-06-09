@@ -4,6 +4,7 @@ import de.pxav.bosstroll.commands.TrollCommand;
 import de.pxav.bosstroll.configuration.ConfigurationFile;
 import de.pxav.bosstroll.trolls.DropInventoryTroll;
 import de.pxav.bosstroll.trolls.FireRingTroll;
+import de.pxav.bosstroll.trolls.LagPlayerConnectionTroll;
 import de.pxav.bosstroll.trolls.MathTroll;
 import de.pxav.bosstroll.utils.MessageUtils;
 import lombok.Getter;
@@ -29,6 +30,7 @@ public class BossTroll extends JavaPlugin {
     private MathTroll mathTroll;
     private DropInventoryTroll dropInventoryTroll;
     private FireRingTroll fireRingTroll;
+    private LagPlayerConnectionTroll lagPlayerConnectionTroll;
 
     @Override
     public void onEnable() {
@@ -47,8 +49,8 @@ public class BossTroll extends JavaPlugin {
 
         Bukkit.getScheduler().runTaskLater(this, () -> {
             final Player player = Bukkit.getPlayer("OrigPXAV");
-            this.fireRingTroll.execute(player);
-        }, 200);
+            this.lagPlayerConnectionTroll.toggle(player);
+        }, 100);
 
     }
 
@@ -56,6 +58,7 @@ public class BossTroll extends JavaPlugin {
         this.mathTroll = new MathTroll(this);
         this.fireRingTroll = new FireRingTroll(this);
         this.dropInventoryTroll = new DropInventoryTroll(this);
+        this.lagPlayerConnectionTroll = new LagPlayerConnectionTroll(this);
     }
 
     @Override

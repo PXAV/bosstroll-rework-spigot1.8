@@ -12,8 +12,6 @@ import org.bukkit.entity.Player;
  */
 public interface ToggleTroll {
 
-    void handleEvent(final Player player);
-
-    void end(final Player player);
+    void toggle(final Player player);
 
 }

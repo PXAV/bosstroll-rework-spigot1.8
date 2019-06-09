@@ -27,7 +27,7 @@ public class ConfigurationFile {
     private YamlConfiguration configuration;
 
     private String commandUsePermission;
-    private int mathTrollTime;
+    private int mathTrollTime, lagDelay;
     private List<MathExercise> mathExercises = new ArrayList<>();
 
     /**
@@ -58,6 +58,7 @@ public class ConfigurationFile {
         commandUsePermission = configuration.getString("Permissions.UseTrollCommand");
 
         mathTrollTime = configuration.getInt("MathTroll.Time");
+        lagDelay = configuration.getInt("LagTroll.Delay");
 
         configuration.getStringList("MathTroll.Exercises").forEach(current -> {
             final String[] input = current.split("==");
