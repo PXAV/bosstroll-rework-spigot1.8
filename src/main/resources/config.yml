@@ -2,3 +2,19 @@
 
 Permissions:
   UseTrollCommand: 'bosstroll.command'
+
+MathTroll:
+
+  Time: 5
+
+  # The math exercises a player can get
+  # Please use the following format to add new ones:
+  # 'your exercise==solution'
+  # Your solution must be an integer!
+  # -> Allowed: 1, 2, 4355, 23, -23445
+  # -> Denied: 99.99, abcde, 1/4
+  Exercises:
+    - '1 + 1==2'
+    - '6 + 3==9'
+    - '6 / 2==3'
+    - 'The double of 10==20'

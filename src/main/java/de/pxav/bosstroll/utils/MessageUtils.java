@@ -10,7 +10,7 @@ import org.bukkit.event.Listener;
  *
  * @author pxav
  */
-public class MessageUtils implements Listener {
+public class MessageUtils {
 
     // instance of the main class.
     private BossTroll main;
