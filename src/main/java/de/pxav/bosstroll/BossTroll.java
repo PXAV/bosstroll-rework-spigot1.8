@@ -1,6 +1,7 @@
 package de.pxav.bosstroll;
 
 import de.pxav.bosstroll.configuration.ConfigurationFile;
+import de.pxav.bosstroll.utils.MessageUtils;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -17,6 +18,7 @@ public class BossTroll extends JavaPlugin {
     private String defaultFilePath = "plugins//BossTrollRework";
 
     private ConfigurationFile configurationFile;
+    private MessageUtils messageUtils;
 
     @Override
     public void onEnable() {
@@ -24,6 +26,8 @@ public class BossTroll extends JavaPlugin {
         // creates and loads the plugin configuration file
         this.saveDefaultConfig();
         this.configurationFile = new ConfigurationFile(this);
+
+        this.messageUtils = new MessageUtils(this);
 
     }
 

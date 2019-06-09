@@ -1,1 +1,4 @@
 # Config file of BossTrollRework v0.1
+
+Permissions:
+  UseTrollCommand: 'bosstroll.command'

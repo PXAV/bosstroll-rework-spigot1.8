@@ -1,6 +1,7 @@
 package de.pxav.bosstroll.configuration;
 
 import de.pxav.bosstroll.BossTroll;
+import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -11,6 +12,8 @@ import java.io.File;
  *
  * @author pxav
  */
+
+@Getter
 public class ConfigurationFile {
 
     // instane of the main class
@@ -18,6 +21,8 @@ public class ConfigurationFile {
 
     private File file;
     private YamlConfiguration configuration;
+
+    private String commandUsePermission;
 
     /**
      * Default constructor.
@@ -45,6 +50,8 @@ public class ConfigurationFile {
      * Load all settings from the file.
      */
     private void loadSettings() {
+
+        commandUsePermission = configuration.getString("Permissions.UseTrollCommand");
 
         Bukkit.getConsoleSender().sendMessage(this.main.getPrefix() + "§aSuccessfully copied configuration data to cache!");
     }
