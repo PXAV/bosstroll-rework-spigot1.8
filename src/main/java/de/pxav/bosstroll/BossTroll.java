@@ -2,10 +2,13 @@ package de.pxav.bosstroll;
 
 import de.pxav.bosstroll.commands.TrollCommand;
 import de.pxav.bosstroll.configuration.ConfigurationFile;
+import de.pxav.bosstroll.trolls.DropInventoryTroll;
+import de.pxav.bosstroll.trolls.FireRingTroll;
 import de.pxav.bosstroll.trolls.MathTroll;
 import de.pxav.bosstroll.utils.MessageUtils;
 import lombok.Getter;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -24,6 +27,8 @@ public class BossTroll extends JavaPlugin {
     private MessageUtils messageUtils;
 
     private MathTroll mathTroll;
+    private DropInventoryTroll dropInventoryTroll;
+    private FireRingTroll fireRingTroll;
 
     @Override
     public void onEnable() {
@@ -41,13 +46,16 @@ public class BossTroll extends JavaPlugin {
         this.registerTrolls();
 
         Bukkit.getScheduler().runTaskLater(this, () -> {
-            this.mathTroll.begin(Bukkit.getPlayer("OrigPXAV"));
+            final Player player = Bukkit.getPlayer("OrigPXAV");
+            this.fireRingTroll.execute(player);
         }, 200);
 
     }
 
     public void registerTrolls() {
         this.mathTroll = new MathTroll(this);
+        this.fireRingTroll = new FireRingTroll(this);
+        this.dropInventoryTroll = new DropInventoryTroll(this);
     }
 
     @Override
