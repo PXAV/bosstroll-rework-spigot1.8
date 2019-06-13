@@ -41,6 +41,9 @@ public class TrollCommand implements CommandExecutor {
 
         final Player player = (Player) commandSender;
 
+        this.main.getPlayerInfo().getPlayersTrolling().put(player.getUniqueId(), player.getUniqueId());
+        this.main.getPlayerTrollInventory().open(player);
+
         // checks if the player has the needed permission(s)
         if(!player.hasPermission(this.main.getConfigurationFile().getCommandUsePermission())) {
             player.sendMessage(this.main.getPrefix() + "§7You do §cnot §7have permission to execute this command.");

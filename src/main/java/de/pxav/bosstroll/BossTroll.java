@@ -2,11 +2,13 @@ package de.pxav.bosstroll;
 
 import de.pxav.bosstroll.commands.TrollCommand;
 import de.pxav.bosstroll.configuration.ConfigurationFile;
+import de.pxav.bosstroll.items.PlayerTrollInventory;
 import de.pxav.bosstroll.trolls.DropInventoryTroll;
 import de.pxav.bosstroll.trolls.FireRingTroll;
 import de.pxav.bosstroll.trolls.LagPlayerConnectionTroll;
 import de.pxav.bosstroll.trolls.MathTroll;
 import de.pxav.bosstroll.utils.MessageUtils;
+import de.pxav.bosstroll.utils.PlayerInfo;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -26,6 +28,8 @@ public class BossTroll extends JavaPlugin {
 
     private ConfigurationFile configurationFile;
     private MessageUtils messageUtils;
+    private PlayerInfo playerInfo;
+    private PlayerTrollInventory playerTrollInventory;
 
     private MathTroll mathTroll;
     private DropInventoryTroll dropInventoryTroll;
@@ -41,7 +45,10 @@ public class BossTroll extends JavaPlugin {
         this.configurationFile.loadFile();
         this.configurationFile.loadSettings();
 
+        this.playerInfo = new PlayerInfo(this);
         this.messageUtils = new MessageUtils(this);
+        this.playerTrollInventory = new PlayerTrollInventory(this);
+        this.playerTrollInventory.prepare();
 
         new TrollCommand("troll", this);
 
