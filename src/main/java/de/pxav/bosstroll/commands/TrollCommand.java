@@ -41,9 +41,6 @@ public class TrollCommand implements CommandExecutor {
 
         final Player player = (Player) commandSender;
 
-        this.main.getPlayerInfo().getPlayersTrolling().put(player.getUniqueId(), player.getUniqueId());
-        this.main.getPlayerTrollInventory().open(player);
-
         // checks if the player has the needed permission(s)
         if(!player.hasPermission(this.main.getConfigurationFile().getCommandUsePermission())) {
             player.sendMessage(this.main.getPrefix() + "§7You do §cnot §7have permission to execute this command.");
@@ -51,6 +48,7 @@ public class TrollCommand implements CommandExecutor {
         }
 
         if(args.length == 1) {
+
             final Player target = Bukkit.getPlayer(args[0]);
 
             if(target == null) {
@@ -58,10 +56,15 @@ public class TrollCommand implements CommandExecutor {
                 return false;
             }
 
+            this.main.getPlayerInfo().getPlayersTrolling().put(player.getUniqueId(), target.getUniqueId());
+            this.main.getPlayerInfo().getTrollingPlayers().put(target.getUniqueId(), player.getUniqueId());
+            this.main.getPlayerTrollInventory().open(player);
+            player.sendMessage(this.main.getPrefix() + "§7You are now trolling " + target.getName());
 
+            return false;
         }
 
-        this.main.getMessageUtils().sendMultipleLineMessage(player, new String[]{
+        this.main.getMessageUtils().sendMultipleLineMessage(player, new String[] {
                 "§8§m----------------------------",
                 "§7Running §cBossTroll §7in v" + this.main.getDescription().getVersion(),
                 "§ctroll <PLAYER>",
@@ -69,7 +72,6 @@ public class TrollCommand implements CommandExecutor {
                 "§ctroll server",
                 "§8§m----------------------------"
         }, true);
-
 
         return false;
     }

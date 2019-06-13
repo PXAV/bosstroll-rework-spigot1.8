@@ -1,6 +1,8 @@
 package de.pxav.bosstroll.items;
 
+import de.pxav.bosstroll.BossTroll;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.json.simple.ItemList;
@@ -34,6 +36,11 @@ public class ItemBuilder {
 
     public ItemBuilder setLore(final String[] lore) {
         this.itemMeta.setLore(Arrays.asList(lore));
+        return this;
+    }
+
+    public ItemBuilder addListener(final Player owner, final ItemListener listener) {
+        BossTroll.getPlugin(BossTroll.class).getListenerUtil().registerListener(owner, listener);
         return this;
     }
 
