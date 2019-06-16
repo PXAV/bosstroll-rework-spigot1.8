@@ -29,6 +29,7 @@ public class ConfigurationFile {
     private String commandUsePermission;
     private int mathTrollTime, lagDelay;
     private List<MathExercise> mathExercises = new ArrayList<>();
+    private List<String> randomTrollMessgages = new ArrayList<>();
 
     /**
      * Default constructor.
@@ -59,6 +60,8 @@ public class ConfigurationFile {
 
         mathTrollTime = configuration.getInt("MathTroll.Time");
         lagDelay = configuration.getInt("LagTroll.Delay");
+
+        this.randomTrollMessgages.addAll(configuration.getStringList("RandomChatTroll.Messages"));
 
         configuration.getStringList("MathTroll.Exercises").forEach(current -> {
             final String[] input = current.split("==");

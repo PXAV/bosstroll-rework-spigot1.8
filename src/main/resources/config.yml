@@ -3,6 +3,12 @@
 Permissions:
   UseTrollCommand: 'bosstroll.command'
 
+RandomChatTroll:
+  Messages:
+    - 'I am dumb'
+    - 'Please OP me!!!11!'
+    - 'This server is bad!'
+
 LagTroll:
   Delay: 3
 

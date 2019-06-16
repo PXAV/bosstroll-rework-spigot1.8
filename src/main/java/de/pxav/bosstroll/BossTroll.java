@@ -6,10 +6,7 @@ import de.pxav.bosstroll.items.PlayerTrollInventory;
 import de.pxav.bosstroll.listener.InventoryClickListener;
 import de.pxav.bosstroll.listener.InventoryCloseListener;
 import de.pxav.bosstroll.listener.PlayerQuitListener;
-import de.pxav.bosstroll.trolls.DropInventoryTroll;
-import de.pxav.bosstroll.trolls.FireRingTroll;
-import de.pxav.bosstroll.trolls.LagPlayerConnectionTroll;
-import de.pxav.bosstroll.trolls.MathTroll;
+import de.pxav.bosstroll.trolls.*;
 import de.pxav.bosstroll.utils.ListenerUtil;
 import de.pxav.bosstroll.utils.MessageUtils;
 import de.pxav.bosstroll.utils.PlayerInfo;
@@ -41,6 +38,7 @@ public class BossTroll extends JavaPlugin {
     private DropInventoryTroll dropInventoryTroll;
     private FireRingTroll fireRingTroll;
     private LagPlayerConnectionTroll lagPlayerConnectionTroll;
+    private RandomChatMessageTroll randomChatMessageTroll;
 
     @Override
     public void onEnable() {
@@ -67,7 +65,6 @@ public class BossTroll extends JavaPlugin {
 
         Bukkit.getScheduler().runTaskLater(this, () -> {
             final Player player = Bukkit.getPlayer("OrigPXAV");
-
         }, 100);
 
     }
@@ -76,6 +73,7 @@ public class BossTroll extends JavaPlugin {
         this.mathTroll = new MathTroll(this);
         this.fireRingTroll = new FireRingTroll(this);
         this.dropInventoryTroll = new DropInventoryTroll(this);
+        this.randomChatMessageTroll = new RandomChatMessageTroll(this);
         this.lagPlayerConnectionTroll = new LagPlayerConnectionTroll(this);
     }
 
