@@ -41,6 +41,7 @@ public class BossTroll extends JavaPlugin {
     private RandomChatMessageTroll randomChatMessageTroll;
     private LavaBlockTroll lavaBlockTroll;
     private WaterBlockTroll waterBlockTroll;
+    private ItemRemoveTroll itemRemoveTroll;
 
     @Override
     public void onEnable() {
@@ -72,6 +73,7 @@ public class BossTroll extends JavaPlugin {
         this.fireRingTroll = new FireRingTroll(this);
         this.lavaBlockTroll = new LavaBlockTroll(this);
         this.waterBlockTroll = new WaterBlockTroll(this);
+        this.itemRemoveTroll = new ItemRemoveTroll(this);
         this.dropInventoryTroll = new DropInventoryTroll(this);
         this.randomChatMessageTroll = new RandomChatMessageTroll(this);
         this.lagPlayerConnectionTroll = new LagPlayerConnectionTroll(this);

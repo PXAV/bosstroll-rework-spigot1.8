@@ -154,6 +154,22 @@ public class PlayerTrollInventory {
                 .build()
         );
 
+        inventory.setItem(19, new ItemBuilder(Material.DIAMOND_SWORD)
+                .setDisplayName("§cItem Remover")
+                .setLore(new String[] {
+                        "§7When a player interacts with an item",
+                        "§7(for example his sword during a fight)",
+                        "§7this item will get cleared from his inventory."
+                })
+                .addListener(player, inventory.getName(), event -> {
+                    event.setCancelled(true);
+                    this.main.getItemRemoveTroll().toggle(
+                            Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
+                    );
+                })
+                .build()
+        );
+
         //19
 
         player.openInventory(inventory);

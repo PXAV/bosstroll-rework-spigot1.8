@@ -55,6 +55,7 @@ public class MathTroll implements TimedTroll, Listener {
         if(playersSolving.containsKey(player.getUniqueId())) {
             player.sendMessage("§7You could not solve the math exercise, so you get killed.");
             player.setHealth(0.0D);
+            playersSolving.remove(player.getUniqueId());
         }
     }
 
