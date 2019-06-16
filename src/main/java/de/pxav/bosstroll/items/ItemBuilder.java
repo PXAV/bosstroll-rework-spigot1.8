@@ -26,12 +26,17 @@ public class ItemBuilder {
     }
 
     public ItemBuilder(final Material type, final int subId) {
-        this.itemStack = new ItemStack(type, (short) subId);
+        this.itemStack = new ItemStack(type, 1, (short) subId);
         this.itemMeta = itemStack.getItemMeta();
     }
 
     public ItemBuilder setDisplayName(final String displayName) {
         this.itemMeta.setDisplayName(displayName);
+        return this;
+    }
+
+    public ItemBuilder setAmount(final int amount) {
+        this.itemStack.setAmount(amount);
         return this;
     }
 

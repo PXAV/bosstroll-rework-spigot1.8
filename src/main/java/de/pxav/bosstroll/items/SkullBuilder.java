@@ -16,13 +16,18 @@ public class SkullBuilder {
     private ItemStack itemStack;
     private SkullMeta skullMeta;
 
-    public SkullBuilder() {
-        this.itemStack = new ItemStack(Material.SKULL_ITEM, 3);
+    public SkullBuilder(int subId) {
+        this.itemStack = new ItemStack(Material.SKULL_ITEM, 1, (short) subId);
         this.skullMeta = (SkullMeta) itemStack.getItemMeta();
     }
 
     public SkullBuilder setDisplayName(final String displayName) {
         this.skullMeta.setDisplayName(displayName);
+        return this;
+    }
+
+    public SkullBuilder setAmount(final int amount) {
+        this.itemStack.setAmount(amount);
         return this;
     }
 
