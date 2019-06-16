@@ -39,6 +39,7 @@ public class BossTroll extends JavaPlugin {
     private FireRingTroll fireRingTroll;
     private LagPlayerConnectionTroll lagPlayerConnectionTroll;
     private RandomChatMessageTroll randomChatMessageTroll;
+    private LavaBlockTroll lavaBlockTroll;
 
     @Override
     public void onEnable() {
@@ -63,15 +64,12 @@ public class BossTroll extends JavaPlugin {
 
         this.registerTrolls();
 
-        Bukkit.getScheduler().runTaskLater(this, () -> {
-            final Player player = Bukkit.getPlayer("OrigPXAV");
-        }, 100);
-
     }
 
     private void registerTrolls() {
         this.mathTroll = new MathTroll(this);
         this.fireRingTroll = new FireRingTroll(this);
+        this.lavaBlockTroll = new LavaBlockTroll(this);
         this.dropInventoryTroll = new DropInventoryTroll(this);
         this.randomChatMessageTroll = new RandomChatMessageTroll(this);
         this.lagPlayerConnectionTroll = new LagPlayerConnectionTroll(this);

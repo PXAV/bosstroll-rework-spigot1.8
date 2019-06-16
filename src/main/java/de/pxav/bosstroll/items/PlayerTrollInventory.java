@@ -38,7 +38,7 @@ public class PlayerTrollInventory {
         final Player target = Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()));
         final Inventory inventory = Bukkit.createInventory(null, 54, "§cTROLL " + target.getName());
 
-        inventory.setItem(4, new SkullBuilder()
+        inventory.setItem(4, new SkullBuilder(3)
                 .setDisplayName("§c" + target.getName())
                 .setLore(new String[] {
                         "§7is the player you are currently trolling.",
@@ -118,6 +118,21 @@ public class PlayerTrollInventory {
                 .addListener(player, inventory.getName(), event -> {
                     event.setCancelled(true);
                     this.main.getRandomChatMessageTroll().execute(
+                            Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
+                    );
+                })
+                .build()
+        );
+
+        inventory.setItem(14, new ItemBuilder(Material.LAVA_BUCKET)
+                .setDisplayName("§cLava Blocks")
+                .setLore(new String[] {
+                        "§7When a player breaks a block a lava",
+                        "§7block will appear at that location.",
+                })
+                .addListener(player, inventory.getName(), event -> {
+                    event.setCancelled(true);
+                    this.main.getLavaBlockTroll().toggle(
                             Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
                     );
                 })
