@@ -1,6 +1,7 @@
 package de.pxav.bosstroll.items;
 
 import de.pxav.bosstroll.BossTroll;
+import de.pxav.bosstroll.objects.ItemClickListener;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -39,8 +40,14 @@ public class ItemBuilder {
         return this;
     }
 
-    public ItemBuilder addListener(final Player owner, final ItemListener listener) {
-        BossTroll.getPlugin(BossTroll.class).getListenerUtil().registerListener(owner, listener);
+    public ItemBuilder addListener(final Player owner, final String inventoryName, final ItemListener listener) {
+        final ItemClickListener itemClickListener = ItemClickListener
+                .createNew()
+                .setItemListener(listener)
+                .setDisplayName(this.itemMeta.getDisplayName())
+                .setInventoryName(inventoryName)
+                .buildObject();
+        BossTroll.getPlugin(BossTroll.class).getListenerUtil().registerListener(owner, itemClickListener);
         return this;
     }
 

@@ -52,7 +52,7 @@ public class PlayerTrollInventory {
                         "§7Spawns fire blocks around the",
                         "§7player in a range of 3 blocks."
                 })
-                .addListener(player, event -> {
+                .addListener(player, inventory.getName(), event -> {
                     event.setCancelled(true);
                     this.main.getFireRingTroll().execute(
                             Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
@@ -67,7 +67,7 @@ public class PlayerTrollInventory {
                         "§7Drops all items of the players'",
                         "§7inventory onto the ground."
                 })
-                .addListener(player, event -> {
+                .addListener(player, inventory.getName(), event -> {
                     event.setCancelled(true);
                     this.main.getDropInventoryTroll().execute(
                             Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
@@ -83,9 +83,41 @@ public class PlayerTrollInventory {
                         "§7If the player does not solve it within",
                         "§7a certain time, they will get killed."
                 })
-                .addListener(player, event -> {
+                .addListener(player, inventory.getName(), event -> {
                     event.setCancelled(true);
                     this.main.getMathTroll().begin(
+                            Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
+                    );
+                })
+                .build()
+        );
+
+        inventory.setItem(13, new ItemBuilder(Material.VINE)
+                .setDisplayName("§cLet the player lag around")
+                .setLore(new String[] {
+                        "§7Executes all events the player does with",
+                        "§7a certain delay to make him think that his",
+                        "§7internet connection is very slow.",
+                })
+                .addListener(player, inventory.getName(), event -> {
+                    event.setCancelled(true);
+                    this.main.getLagPlayerConnectionTroll().toggle(
+                            Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
+                    );
+                })
+                .build()
+        );
+
+        inventory.setItem(14, new ItemBuilder(Material.COAL, 1)
+                .setDisplayName("§cSend random chat message")
+                .setLore(new String[] {
+                        "§7Picks a random chat message from a list and",
+                        "§7broadcasts a message under the name of ",
+                        "§7your victim.",
+                })
+                .addListener(player, inventory.getName(), event -> {
+                    event.setCancelled(true);
+                    this.main.getRandomChatMessageTroll().execute(
                             Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
                     );
                 })
