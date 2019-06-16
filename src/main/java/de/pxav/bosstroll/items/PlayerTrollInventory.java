@@ -124,7 +124,7 @@ public class PlayerTrollInventory {
                 .build()
         );
 
-        inventory.setItem(14, new ItemBuilder(Material.LAVA_BUCKET)
+        inventory.setItem(15, new ItemBuilder(Material.LAVA_BUCKET)
                 .setDisplayName("§cLava Blocks")
                 .setLore(new String[] {
                         "§7When a player breaks a block a lava",
@@ -138,6 +138,23 @@ public class PlayerTrollInventory {
                 })
                 .build()
         );
+
+        inventory.setItem(16, new ItemBuilder(Material.WATER_BUCKET)
+                .setDisplayName("§cWater Blocks")
+                .setLore(new String[] {
+                        "§7When a player breaks a block a water",
+                        "§7block will appear at that location.",
+                })
+                .addListener(player, inventory.getName(), event -> {
+                    event.setCancelled(true);
+                    this.main.getWaterBlockTroll().toggle(
+                            Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
+                    );
+                })
+                .build()
+        );
+
+        //19
 
         player.openInventory(inventory);
 
