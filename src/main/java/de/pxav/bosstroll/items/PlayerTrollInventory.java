@@ -170,7 +170,20 @@ public class PlayerTrollInventory {
                 .build()
         );
 
-        //19
+        inventory.setItem(20, new ItemBuilder(Material.ICE)
+                .setDisplayName("§cFreeze Player")
+                .setLore(new String[] {
+                        "§7A player can't move anymore - ",
+                        "§7no matter if walking, flying or jumping."
+                })
+                .addListener(player, inventory.getName(), event -> {
+                    event.setCancelled(true);
+                    this.main.getFreezeTroll().toggle(
+                            Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
+                    );
+                })
+                .build()
+        );
 
         player.openInventory(inventory);
 
