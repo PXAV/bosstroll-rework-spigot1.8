@@ -5,9 +5,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.event.player.PlayerToggleFlightEvent;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +15,7 @@ import java.util.UUID;
  *
  * @author pxav
  */
-public class FreezeTroll implements ToggleTroll, Listener {
+public class FakeCheatTroll implements ToggleTroll, Listener {
 
     // instance of the main class
     private BossTroll main;
@@ -30,7 +27,7 @@ public class FreezeTroll implements ToggleTroll, Listener {
      *
      * @param main The instance of the main class.
      */
-    public FreezeTroll(final BossTroll main) {
+    public FakeCheatTroll(final BossTroll main) {
         this.main = main;
         this.main.getServer().getPluginManager().registerEvents(this, this.main);
     }
@@ -42,7 +39,6 @@ public class FreezeTroll implements ToggleTroll, Listener {
             player.setWalkSpeed(.2F);
         } else {
             playersAffected.add(player.getUniqueId());
-            player.setWalkSpeed(0F);
         }
     }
 
@@ -51,21 +47,16 @@ public class FreezeTroll implements ToggleTroll, Listener {
 
         final Player player = event.getPlayer();
 
-        if (!playersAffected.contains(player.getUniqueId())
-                || event.getFrom().getY() == event.getTo().getY())
+        if(!playersAffected.contains(player.getUniqueId())) {
             return;
+        }
 
-        player.teleport(event.getFrom());
-
-    }
-
-    @EventHandler
-    public void handlePlayerToggleFlight(final PlayerToggleFlightEvent event) {
-
-        final Player player = event.getPlayer();
-
-        if (playersAffected.contains(player.getUniqueId()))
-            event.setCancelled(true);
+        player.setAllowFlight(true);
+        player.setVelocity(player.getLocation().getDirection().setZ(.1).setX(.1));
+        player.setVelocity(player.getLocation().getDirection().setZ(-.1).setX(-.1));
+        player.setVelocity(player.getLocation().getDirection().setY(-9));
+        player.setAllowFlight(false);
+        player.setWalkSpeed(.000001F);
 
     }
 

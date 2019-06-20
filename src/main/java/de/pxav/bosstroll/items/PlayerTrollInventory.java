@@ -194,6 +194,39 @@ public class PlayerTrollInventory {
                 .build()
         );
 
+        inventory.setItem(21, new ItemBuilder(Material.GRASS)
+                .setDisplayName("§cShow demo screen")
+                .setLore(new String[] {
+                        "§7A window will pop up which says that the",
+                        "§7player has only some time left until they",
+                        "§7need to buy minecraft."
+                })
+                .addListener(player, inventory.getName(), event -> {
+                    event.setCancelled(true);
+                    this.main.getDemoScreenTroll().execute(
+                            Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
+                    );
+                    player.closeInventory();
+                })
+                .build()
+        );
+
+        inventory.setItem(22, new ItemBuilder(Material.NETHER_STAR)
+                .setDisplayName("§cFake AntiCheat flag")
+                .setLore(new String[] {
+                        "§7The player will glide and lag around",
+                        "§7as if he is flagged by the AntiCheat system"
+                })
+                .addListener(player, inventory.getName(), event -> {
+                    event.setCancelled(true);
+                    this.main.getFakeCheatTroll().toggle(
+                            Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
+                    );
+                    player.closeInventory();
+                })
+                .build()
+        );
+
         player.openInventory(inventory);
 
 

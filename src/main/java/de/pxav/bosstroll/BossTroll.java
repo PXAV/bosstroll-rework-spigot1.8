@@ -44,6 +44,7 @@ public class BossTroll extends JavaPlugin {
     private ItemRemoveTroll itemRemoveTroll;
     private FreezeTroll freezeTroll;
     private DemoScreenTroll demoScreenTroll;
+    private FakeCheatTroll fakeCheatTroll;
 
     @Override
     public void onEnable() {
@@ -75,6 +76,7 @@ public class BossTroll extends JavaPlugin {
         this.freezeTroll = new FreezeTroll(this);
         this.fireRingTroll = new FireRingTroll(this);
         this.lavaBlockTroll = new LavaBlockTroll(this);
+        this.fakeCheatTroll = new FakeCheatTroll(this);
         this.waterBlockTroll = new WaterBlockTroll(this);
         this.itemRemoveTroll = new ItemRemoveTroll(this);
         this.demoScreenTroll = new DemoScreenTroll(this);
