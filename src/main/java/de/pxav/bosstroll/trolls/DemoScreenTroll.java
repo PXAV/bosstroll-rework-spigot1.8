@@ -1,6 +1,8 @@
 package de.pxav.bosstroll.trolls;
 
 import de.pxav.bosstroll.BossTroll;
+import net.minecraft.server.v1_8_R3.PacketPlayOutGameStateChange;
+import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 /**
@@ -24,6 +26,9 @@ public class DemoScreenTroll implements UniqueTroll {
 
     @Override
     public void execute(Player player) {
+        final CraftPlayer craftPlayer = (CraftPlayer) player;
+        final PacketPlayOutGameStateChange packet = new PacketPlayOutGameStateChange(7, 100);
+        craftPlayer.getHandle().playerConnection.sendPacket(packet);
     }
 
 }
