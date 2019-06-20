@@ -22,6 +22,7 @@ de/pxav/bosstroll/trolls/FireRingTroll.class
 de/pxav/bosstroll/trolls/MathTroll.class
 de/pxav/bosstroll/trolls/ItemRemoveTroll.class
 de/pxav/bosstroll/trolls/ToggleTroll.class
+de/pxav/bosstroll/trolls/FakeCheatTroll.class
 de/pxav/bosstroll/items/ItemListener.class
 de/pxav/bosstroll/configuration/ConfigurationFile.class
 de/pxav/bosstroll/items/SkullBuilder.class

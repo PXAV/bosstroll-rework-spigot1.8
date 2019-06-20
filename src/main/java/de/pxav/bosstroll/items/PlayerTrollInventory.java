@@ -20,6 +20,8 @@ public class PlayerTrollInventory {
     // instance of the main class
     private BossTroll main;
 
+    private ItemStack fillMaterial;
+
     /**
      * Default constructor.
      *
@@ -30,13 +32,18 @@ public class PlayerTrollInventory {
     }
 
     public void prepare() {
-
+        this.fillMaterial = new ItemBuilder(Material.STAINED_GLASS_PANE, 7)
+                .setDisplayName(" ")
+                .build();
     }
 
     public void open(final Player player) {
 
         final Player target = Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()));
         final Inventory inventory = Bukkit.createInventory(null, 54, "§cTROLL " + target.getName());
+
+        for (int i = 0; i < inventory.getSize(); i++)
+            inventory.setItem(i, fillMaterial);
 
         inventory.setItem(4, new SkullBuilder(3)
                 .setDisplayName("§c" + target.getName())
