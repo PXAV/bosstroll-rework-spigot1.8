@@ -30,6 +30,8 @@ public class ItemBuilder {
         this.itemMeta = itemStack.getItemMeta();
     }
 
+    public ItemBuilder() {}
+
     public ItemBuilder setDisplayName(final String displayName) {
         this.itemMeta.setDisplayName(displayName);
         return this;
@@ -58,6 +60,14 @@ public class ItemBuilder {
 
     public ItemStack build() {
         itemStack.setItemMeta(itemMeta);
+        return itemStack;
+    }
+
+    public ItemStack buildFillMaterial() {
+        final ItemStack fillMaterial = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 7);
+        final ItemMeta fillMeta = fillMaterial.getItemMeta();
+        fillMeta.setDisplayName(" ");
+        fillMaterial.setItemMeta(fillMeta);
         return itemStack;
     }
 

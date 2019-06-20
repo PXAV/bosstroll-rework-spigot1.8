@@ -1,4 +1,4 @@
-package de.pxav.bosstroll.trolls;
+package de.pxav.bosstroll.trolls.templates;
 
 import org.bukkit.entity.Player;
 

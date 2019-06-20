@@ -1,6 +1,7 @@
-package de.pxav.bosstroll.trolls;
+package de.pxav.bosstroll.trolls.player;
 
 import de.pxav.bosstroll.BossTroll;
+import de.pxav.bosstroll.trolls.templates.ToggleTroll;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;

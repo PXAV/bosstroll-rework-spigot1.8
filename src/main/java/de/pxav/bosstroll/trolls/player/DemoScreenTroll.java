@@ -1,6 +1,7 @@
-package de.pxav.bosstroll.trolls;
+package de.pxav.bosstroll.trolls.player;
 
 import de.pxav.bosstroll.BossTroll;
+import de.pxav.bosstroll.trolls.templates.UniqueTroll;
 import net.minecraft.server.v1_8_R3.PacketPlayOutGameStateChange;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;

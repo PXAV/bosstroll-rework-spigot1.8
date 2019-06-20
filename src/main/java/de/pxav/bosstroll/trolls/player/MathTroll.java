@@ -1,7 +1,7 @@
-package de.pxav.bosstroll.trolls;
+package de.pxav.bosstroll.trolls.player;
 
-import com.avaje.ebean.validation.Email;
 import de.pxav.bosstroll.BossTroll;
+import de.pxav.bosstroll.trolls.templates.TimedTroll;
 import de.pxav.bosstroll.utils.MathExercise;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;

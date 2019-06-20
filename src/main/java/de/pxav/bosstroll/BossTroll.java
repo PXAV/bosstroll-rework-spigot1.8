@@ -3,17 +3,16 @@ package de.pxav.bosstroll;
 import de.pxav.bosstroll.commands.TrollCommand;
 import de.pxav.bosstroll.configuration.ConfigurationFile;
 import de.pxav.bosstroll.items.PlayerTrollInventory;
+import de.pxav.bosstroll.items.ServerTrollInventory;
 import de.pxav.bosstroll.listener.InventoryClickListener;
 import de.pxav.bosstroll.listener.InventoryCloseListener;
 import de.pxav.bosstroll.listener.PlayerQuitListener;
-import de.pxav.bosstroll.trolls.*;
+import de.pxav.bosstroll.trolls.player.*;
+import de.pxav.bosstroll.trolls.server.TeleportAllTroll;
 import de.pxav.bosstroll.utils.ListenerUtil;
 import de.pxav.bosstroll.utils.MessageUtils;
 import de.pxav.bosstroll.utils.PlayerInfo;
 import lombok.Getter;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -33,7 +32,9 @@ public class BossTroll extends JavaPlugin {
     private PlayerInfo playerInfo;
     private PlayerTrollInventory playerTrollInventory;
     private ListenerUtil listenerUtil;
+    private ServerTrollInventory serverTrollInventory;
 
+    // player trolls
     private MathTroll mathTroll;
     private DropInventoryTroll dropInventoryTroll;
     private FireRingTroll fireRingTroll;
@@ -45,6 +46,9 @@ public class BossTroll extends JavaPlugin {
     private FreezeTroll freezeTroll;
     private DemoScreenTroll demoScreenTroll;
     private FakeCheatTroll fakeCheatTroll;
+
+    // server trolls
+    private TeleportAllTroll teleportAllTroll;
 
     @Override
     public void onEnable() {
@@ -60,6 +64,8 @@ public class BossTroll extends JavaPlugin {
         this.messageUtils = new MessageUtils(this);
         this.playerTrollInventory = new PlayerTrollInventory(this);
         this.playerTrollInventory.prepare();
+        this.serverTrollInventory = new ServerTrollInventory(this);
+        this.serverTrollInventory.prepare();
 
         new TrollCommand("troll", this);
 
@@ -83,6 +89,8 @@ public class BossTroll extends JavaPlugin {
         this.dropInventoryTroll = new DropInventoryTroll(this);
         this.randomChatMessageTroll = new RandomChatMessageTroll(this);
         this.lagPlayerConnectionTroll = new LagPlayerConnectionTroll(this);
+
+        this.teleportAllTroll = new TeleportAllTroll(this);
     }
 
     @Override

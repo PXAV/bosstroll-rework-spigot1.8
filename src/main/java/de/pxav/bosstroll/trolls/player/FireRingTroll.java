@@ -1,16 +1,14 @@
-package de.pxav.bosstroll.trolls;
+package de.pxav.bosstroll.trolls.player;
 
 import de.pxav.bosstroll.BossTroll;
+import de.pxav.bosstroll.trolls.templates.UniqueTroll;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * A class description goes here.

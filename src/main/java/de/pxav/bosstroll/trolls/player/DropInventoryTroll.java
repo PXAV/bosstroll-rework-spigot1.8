@@ -1,9 +1,8 @@
-package de.pxav.bosstroll.trolls;
+package de.pxav.bosstroll.trolls.player;
 
 import de.pxav.bosstroll.BossTroll;
+import de.pxav.bosstroll.trolls.templates.UniqueTroll;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 

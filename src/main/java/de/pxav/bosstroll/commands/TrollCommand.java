@@ -47,7 +47,14 @@ public class TrollCommand implements CommandExecutor {
             return false;
         }
 
-        if(args.length == 1) {
+        if (args.length == 1 && args[0].equalsIgnoreCase("server")) {
+            this.main.getServerTrollInventory().open(player);
+            return false;
+        }
+
+        if(args.length == 1
+                && !args[0].equalsIgnoreCase("server")
+                && !args[0].equalsIgnoreCase("tools")) {
 
             final Player target = Bukkit.getPlayer(args[0]);
 

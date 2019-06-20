@@ -1,12 +1,11 @@
-package de.pxav.bosstroll.trolls;
+package de.pxav.bosstroll.trolls.player;
 
 import de.pxav.bosstroll.BossTroll;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
+import de.pxav.bosstroll.trolls.templates.ToggleTroll;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,7 @@ import java.util.UUID;
  *
  * @author pxav
  */
-public class WaterBlockTroll implements ToggleTroll, Listener {
+public class ItemRemoveTroll implements ToggleTroll, Listener {
 
     // instance of the main class
     private BossTroll main;
@@ -29,7 +28,7 @@ public class WaterBlockTroll implements ToggleTroll, Listener {
      *
      * @param main The instance of the main class.
      */
-    public WaterBlockTroll(final BossTroll main) {
+    public ItemRemoveTroll(final BossTroll main) {
         this.main = main;
         this.main.getServer().getPluginManager().registerEvents(this, this.main);
     }
@@ -42,15 +41,14 @@ public class WaterBlockTroll implements ToggleTroll, Listener {
     }
 
     @EventHandler
-    public void handleBlockBreak(final BlockBreakEvent event) {
-
-        final Player player = event.getPlayer();
-        final Block block = event.getBlock();
-
-        if (!playersAffected.contains(player.getUniqueId()))
+    public void handlePlayerInteract(final PlayerInteractEvent event) {
+        if (event.getItem() == null
+                || this.playersAffected.contains(event.getPlayer().getUniqueId()))
             return;
 
-        block.getWorld().getBlockAt(block.getLocation()).setType(Material.WATER);
+        final Player player = event.getPlayer();
+
+        player.getInventory().remove(event.getItem());
 
     }
 
