@@ -1,0 +1,8 @@
+name: BossTroll
+version: 0.1-TESTING
+author: pxav
+main: de.pxav.bosstroll.BossTroll
+commands:
+  troll:
+    description: The main command of the plugin. Troll players.
+    aliases: [bosstroll, bt]

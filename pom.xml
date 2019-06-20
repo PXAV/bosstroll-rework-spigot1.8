@@ -17,6 +17,44 @@
                     <target>8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Main-Class>org.bukkit.craftbukkit.Main</Main-Class>
+                            <Implementation-Title>CraftBukkit</Implementation-Title>
+                            <Implementation-Version>1.8</Implementation-Version>
+                            <Implementation-Vendor>${maven.build.timestamp}</Implementation-Vendor>
+                            <Specification-Title>Bukkit</Specification-Title>
+                            <Specification-Version>1.8.8</Specification-Version>
+                            <Specification-Vendor>Bukkit Team</Specification-Vendor>
+                        </manifestEntries>
+                        <manifestSections>
+                            <manifestSection>
+                                <name>net/bukkit/</name>
+                                <manifestEntries>
+                                    <Sealed>true</Sealed>
+                                </manifestEntries>
+                            </manifestSection>
+                            <manifestSection>
+                                <name>com/bukkit/</name>
+                                <manifestEntries>
+                                    <Sealed>true</Sealed>
+                                </manifestEntries>
+                            </manifestSection>
+                            <manifestSection>
+                                <name>org/bukkit/</name>
+                                <manifestEntries>
+                                    <Sealed>true</Sealed>
+                                </manifestEntries>
+                            </manifestSection>
+                        </manifestSections>
+                    </archive>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -30,9 +68,24 @@
     <dependencies>
 
         <!--Spigot API-->
+
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
+            <version>1.8.8-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>minecraft-server</artifactId>
+            <version>1.8.8-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bukkit</groupId>
+            <artifactId>craftbukkit</artifactId>
             <version>1.8.8-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
