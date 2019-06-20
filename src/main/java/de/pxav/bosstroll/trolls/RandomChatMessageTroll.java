@@ -29,6 +29,8 @@ public class RandomChatMessageTroll implements UniqueTroll {
     @Override
     public void execute(Player player) {
         Collections.shuffle(this.main.getConfigurationFile().getRandomTrollMessgages());
-        player.chat(this.main.getConfigurationFile().getRandomTrollMessgages().get(0));
+        final String message = this.main.getConfigurationFile().getRandomTrollMessgages().get(0);
+        if(message != null)
+            player.chat(message);
     }
 }

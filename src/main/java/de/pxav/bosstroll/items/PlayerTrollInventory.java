@@ -57,6 +57,7 @@ public class PlayerTrollInventory {
                     this.main.getFireRingTroll().execute(
                             Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
                     );
+                    player.closeInventory();
                 })
                 .build()
         );
@@ -72,6 +73,7 @@ public class PlayerTrollInventory {
                     this.main.getDropInventoryTroll().execute(
                             Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
                     );
+                    player.closeInventory();
                 })
                 .build()
         );
@@ -88,6 +90,7 @@ public class PlayerTrollInventory {
                     this.main.getMathTroll().begin(
                             Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
                     );
+                    player.closeInventory();
                 })
                 .build()
         );
@@ -104,6 +107,7 @@ public class PlayerTrollInventory {
                     this.main.getLagPlayerConnectionTroll().toggle(
                             Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
                     );
+                    player.closeInventory();
                 })
                 .build()
         );
@@ -120,6 +124,7 @@ public class PlayerTrollInventory {
                     this.main.getRandomChatMessageTroll().execute(
                             Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
                     );
+                    player.closeInventory();
                 })
                 .build()
         );
@@ -135,6 +140,7 @@ public class PlayerTrollInventory {
                     this.main.getLavaBlockTroll().toggle(
                             Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
                     );
+                    player.closeInventory();
                 })
                 .build()
         );
@@ -150,6 +156,7 @@ public class PlayerTrollInventory {
                     this.main.getWaterBlockTroll().toggle(
                             Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
                     );
+                    player.closeInventory();
                 })
                 .build()
         );
@@ -166,6 +173,7 @@ public class PlayerTrollInventory {
                     this.main.getItemRemoveTroll().toggle(
                             Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
                     );
+                    player.closeInventory();
                 })
                 .build()
         );
@@ -181,6 +189,7 @@ public class PlayerTrollInventory {
                     this.main.getFreezeTroll().toggle(
                             Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
                     );
+                    player.closeInventory();
                 })
                 .build()
         );

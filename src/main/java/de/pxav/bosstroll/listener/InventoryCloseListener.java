@@ -35,10 +35,9 @@ public class InventoryCloseListener implements Listener {
 
         final Player player = (Player) event.getPlayer();
 
-        if (this.main.getPlayerInfo().getPlayersTrolling().containsValue(player.getUniqueId())) {
-            this.main.getListenerUtil().unregisterListener(player);
-            this.main.getPlayerInfo().getPlayersTrolling().remove(player.getUniqueId());
-        }
+        this.main.getListenerUtil().unregisterListener(player);
+        this.main.getPlayerInfo().getPlayersTrolling().remove(player.getUniqueId());
+        this.main.getPlayerInfo().getTrollingPlayers().remove(player.getUniqueId());
 
     }
 
