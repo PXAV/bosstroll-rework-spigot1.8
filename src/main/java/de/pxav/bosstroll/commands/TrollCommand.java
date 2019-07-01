@@ -57,6 +57,7 @@ public class TrollCommand implements CommandExecutor {
                 && !args[0].equalsIgnoreCase("tools")) {
 
             this.main.getPlayerInfo().getPlayersTrolling().remove(player.getUniqueId());
+            this.main.getListenerUtil().unregisterListener(player);
             final Player target = Bukkit.getPlayer(args[0]);
 
             if(target == null) {

@@ -12,6 +12,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 import java.util.*;
+import java.util.function.BiConsumer;
 
 /**
  * A class description goes here.
@@ -23,7 +24,7 @@ public class ListenerUtil {
     @Getter
     private List<ItemClickListener> listeners;
 
-    private Map<UUID, ItemClickListener> playerListeners;
+    private Map<UUID, List<ItemClickListener>> playerListeners;
 
     // instance of the main class
     private BossTroll main;
@@ -40,15 +41,19 @@ public class ListenerUtil {
     }
 
     public void registerListener(final Player owner, final ItemClickListener itemListener) {
-        this.playerListeners.put(owner.getUniqueId(), itemListener);
+        this.playerListeners.computeIfAbsent(owner.getUniqueId(), k -> new ArrayList<>());
+        List<ItemClickListener> itemClickListeners = new ArrayList<>(this.playerListeners.get(owner.getUniqueId()));
+        itemClickListeners.add(itemListener);
+        this.playerListeners.put(owner.getUniqueId(), itemClickListeners);
         this.listeners.add(itemListener);
     }
 
     public void unregisterListener(final Player owner) {
-        Maps.newHashMap(this.playerListeners).keySet().forEach(current -> {
-            if(current.toString().equalsIgnoreCase(owner.getUniqueId().toString()))
-                this.unregisterListener(this.playerListeners.get(current));
+        this.playerListeners.forEach((uuid, itemClickListeners) -> {
+            if (owner.getUniqueId().toString().equalsIgnoreCase(uuid.toString()))
+                this.listeners.removeAll(itemClickListeners);
         });
+        this.playerListeners.remove(owner.getUniqueId());
     }
 
     public void fire(final InventoryClickEvent event) {
