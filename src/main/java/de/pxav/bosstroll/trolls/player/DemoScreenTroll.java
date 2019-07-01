@@ -28,8 +28,14 @@ public class DemoScreenTroll implements UniqueTroll {
     @Override
     public void execute(Player player) {
         final CraftPlayer craftPlayer = (CraftPlayer) player;
-        final PacketPlayOutGameStateChange packet = new PacketPlayOutGameStateChange(7, 100);
-        craftPlayer.getHandle().playerConnection.sendPacket(packet);
+        final PacketPlayOutGameStateChange welcomePacket = new PacketPlayOutGameStateChange(5, 0.0F);
+        final PacketPlayOutGameStateChange moveHelpPacket = new PacketPlayOutGameStateChange(5, 101F);
+        final PacketPlayOutGameStateChange jumpHelpPacket = new PacketPlayOutGameStateChange(5, 102F);
+        final PacketPlayOutGameStateChange inventoryControl = new PacketPlayOutGameStateChange(5, 103F);
+        craftPlayer.getHandle().playerConnection.sendPacket(inventoryControl);
+        craftPlayer.getHandle().playerConnection.sendPacket(jumpHelpPacket);
+        craftPlayer.getHandle().playerConnection.sendPacket(welcomePacket);
+        craftPlayer.getHandle().playerConnection.sendPacket(moveHelpPacket);
     }
 
 }

@@ -46,7 +46,9 @@ public class ProjectileHitListener implements Listener {
             return;
         }
 
-        if (projectile.getType() != EntityType.ARROW)
+        if (projectile.getType() != EntityType.ARROW
+                || player.getItemInHand() == null
+                || player.getItemInHand().getItemMeta().getDisplayName() == null)
             return;
 
         if (player.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(TrollToolsInventory.CREEPER_BOW_TITLE)) {

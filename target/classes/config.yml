@@ -3,6 +3,10 @@
 Permissions:
   UseTrollCommand: 'bosstroll.command'
 
+Tools:
+  FireBallExplosionRange: 3
+  ExplosionBowRange: 3
+
 RandomChatTroll:
   Messages:
     - 'I am dumb'

@@ -206,9 +206,11 @@ public class PlayerTrollInventory {
                 })
                 .addListener(player, inventory.getName(), event -> {
                     event.setCancelled(true);
-                    this.main.getDemoScreenTroll().execute(
-                            Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
-                    );
+                    Bukkit.getScheduler().runTaskLater(this.main, () -> {
+                        this.main.getDemoScreenTroll().execute(
+                                Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
+                        );
+                    }, 2L);
                     player.closeInventory();
                 })
                 .build()
