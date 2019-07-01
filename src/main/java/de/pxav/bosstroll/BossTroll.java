@@ -4,8 +4,10 @@ import de.pxav.bosstroll.commands.TrollCommand;
 import de.pxav.bosstroll.configuration.ConfigurationFile;
 import de.pxav.bosstroll.items.PlayerTrollInventory;
 import de.pxav.bosstroll.items.ServerTrollInventory;
+import de.pxav.bosstroll.items.TrollToolsInventory;
 import de.pxav.bosstroll.listener.InventoryClickListener;
 import de.pxav.bosstroll.listener.InventoryCloseListener;
+import de.pxav.bosstroll.listener.PlayerInteractListener;
 import de.pxav.bosstroll.listener.PlayerQuitListener;
 import de.pxav.bosstroll.trolls.player.*;
 import de.pxav.bosstroll.trolls.server.HackMessageTroll;
@@ -36,6 +38,7 @@ public class BossTroll extends JavaPlugin {
     private ListenerUtil listenerUtil;
     private ServerTrollInventory serverTrollInventory;
     private PacketFactory packetFactory;
+    private TrollToolsInventory trollToolsInventory;
 
     // player trolls
     private MathTroll mathTroll;
@@ -72,6 +75,7 @@ public class BossTroll extends JavaPlugin {
         this.playerTrollInventory.prepare();
         this.serverTrollInventory = new ServerTrollInventory(this);
         this.serverTrollInventory.prepare();
+        this.trollToolsInventory = new TrollToolsInventory(this);
         this.packetFactory = new PacketFactory();
 
         new TrollCommand("troll", this);
@@ -79,6 +83,7 @@ public class BossTroll extends JavaPlugin {
         new InventoryClickListener(this);
         new InventoryCloseListener(this);
         new PlayerQuitListener(this);
+        new PlayerInteractListener(this);
 
         this.registerTrolls();
 

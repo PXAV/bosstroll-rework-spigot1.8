@@ -10,10 +10,12 @@ de/pxav/bosstroll/commands/TrollCommand.class
 de/pxav/bosstroll/objects/ItemClickListener.class
 de/pxav/bosstroll/objects/ItemClickListener$ItemClickListenerBuilder.class
 de/pxav/bosstroll/trolls/templates/ToggleTroll.class
+de/pxav/bosstroll/items/TrollToolsInventory.class
 de/pxav/bosstroll/listener/InventoryClickListener.class
 de/pxav/bosstroll/trolls/server/TeleportAllTroll.class
 de/pxav/bosstroll/utils/MathExercise.class
 de/pxav/bosstroll/trolls/player/MathTroll.class
+de/pxav/bosstroll/trolls/player/FakeBanTroll.class
 de/pxav/bosstroll/trolls/player/ItemRemoveTroll.class
 de/pxav/bosstroll/BossTroll.class
 de/pxav/bosstroll/trolls/templates/GlobalUniqueTroll.class
@@ -25,6 +27,8 @@ de/pxav/bosstroll/trolls/player/FakeCheatTroll.class
 de/pxav/bosstroll/utils/PacketFactory.class
 de/pxav/bosstroll/utils/PlayerInfo.class
 de/pxav/bosstroll/items/ItemBuilder.class
+de/pxav/bosstroll/listener/PlayerInteractListener.class
+de/pxav/bosstroll/trolls/player/FakeOperatorTroll.class
 de/pxav/bosstroll/items/ItemListener.class
 de/pxav/bosstroll/configuration/ConfigurationFile.class
 de/pxav/bosstroll/trolls/player/FreezeTroll.class

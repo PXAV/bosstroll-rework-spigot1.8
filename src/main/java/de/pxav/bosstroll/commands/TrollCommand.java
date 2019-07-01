@@ -52,6 +52,11 @@ public class TrollCommand implements CommandExecutor {
             return false;
         }
 
+        if (args.length == 1 && args[0].equalsIgnoreCase("tools")) {
+            this.main.getTrollToolsInventory().open(player);
+            return false;
+        }
+
         if(args.length == 1
                 && !args[0].equalsIgnoreCase("server")
                 && !args[0].equalsIgnoreCase("tools")) {

@@ -12,6 +12,21 @@ RandomChatTroll:
 LagTroll:
   Delay: 3
 
+FakeBan:
+  Message:
+    - '&8&m------------------------'
+    - '&7'
+    - '&4&lYOURNETWORK.COM'
+    - '&cYou have been banned from the server.'
+    - ''
+    - '&cReason&8: &7Insulting other players'
+    - '&cDuration&8: &730 days'
+    - '&7'
+    - '&7If you think this is an error, visit our'
+    - '&7forums page &cforum.yournetwork.com &7to repeal.'
+    - '&7'
+    - '&8&m------------------------'
+
 MathTroll:
 
   Time: 5
