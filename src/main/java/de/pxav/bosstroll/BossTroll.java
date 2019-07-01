@@ -50,6 +50,7 @@ public class BossTroll extends JavaPlugin {
     private DemoScreenTroll demoScreenTroll;
     private FakeCheatTroll fakeCheatTroll;
     private FakeOperatorTroll fakeOperatorTroll;
+    private FakeBanTroll fakeBanTroll;
 
     // server trolls
     private TeleportAllTroll teleportAllTroll;
@@ -86,6 +87,7 @@ public class BossTroll extends JavaPlugin {
     private void registerTrolls() {
         this.mathTroll = new MathTroll(this);
         this.freezeTroll = new FreezeTroll(this);
+        this.fakeBanTroll = new FakeBanTroll(this);
         this.fireRingTroll = new FireRingTroll(this);
         this.lavaBlockTroll = new LavaBlockTroll(this);
         this.fakeCheatTroll = new FakeCheatTroll(this);

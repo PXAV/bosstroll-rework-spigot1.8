@@ -246,6 +246,22 @@ public class PlayerTrollInventory {
                 .build()
         );
 
+        inventory.setItem(24, new ItemBuilder(Material.BANNER, 1)
+                .setDisplayName("§cFake Ban")
+                .setLore(new String[] {
+                        "§7The player will get a message that",
+                        "§7says they are now banned from the server."
+                })
+                .addListener(player, inventory.getName(), event -> {
+                    event.setCancelled(true);
+                    this.main.getFakeBanTroll().execute(
+                            Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))
+                    );
+                    player.closeInventory();
+                })
+                .build()
+        );
+
         player.openInventory(inventory);
 
 

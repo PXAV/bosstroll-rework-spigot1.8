@@ -8,7 +8,6 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -27,9 +26,10 @@ public class ConfigurationFile {
     private YamlConfiguration configuration;
 
     private String commandUsePermission;
+    private String fakeBanMessage;
     private int mathTrollTime, lagDelay;
     private List<MathExercise> mathExercises = new ArrayList<>();
-    private List<String> randomTrollMessgages = new ArrayList<>();
+    private List<String> randomTrollMessages = new ArrayList<>();
 
     /**
      * Default constructor.
@@ -61,7 +61,13 @@ public class ConfigurationFile {
         mathTrollTime = configuration.getInt("MathTroll.Time");
         lagDelay = configuration.getInt("LagTroll.Delay");
 
-        this.randomTrollMessgages.addAll(configuration.getStringList("RandomChatTroll.Messages"));
+        this.randomTrollMessages.addAll(configuration.getStringList("RandomChatTroll.Messages"));
+
+        StringBuilder banMessageBuilder = new StringBuilder();
+        configuration.getStringList("FakeBan.Message").forEach(current -> {
+            banMessageBuilder.append(current.replace("&", "§")).append("\n");
+        });
+        fakeBanMessage = banMessageBuilder.toString();
 
         configuration.getStringList("MathTroll.Exercises").forEach(current -> {
             final String[] input = current.split("==");
@@ -72,7 +78,6 @@ public class ConfigurationFile {
             } catch (NumberFormatException e) {
                 Bukkit.getConsoleSender().sendMessage(this.main.getPrefix() + "§cError while loading configuration data! " +
                         "The solution of math exercise '" + task + "' is invalid! [" + input[1] + "]");
-                return;
             }
 
         });
