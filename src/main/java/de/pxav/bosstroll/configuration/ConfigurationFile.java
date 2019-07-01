@@ -28,6 +28,7 @@ public class ConfigurationFile {
     private String commandUsePermission;
     private String fakeBanMessage;
     private int mathTrollTime, lagDelay;
+    private long fireBallExplosionRange;
     private List<MathExercise> mathExercises = new ArrayList<>();
     private List<String> randomTrollMessages = new ArrayList<>();
 
@@ -60,6 +61,7 @@ public class ConfigurationFile {
 
         mathTrollTime = configuration.getInt("MathTroll.Time");
         lagDelay = configuration.getInt("LagTroll.Delay");
+        fireBallExplosionRange = configuration.getLong("Tools.FireBallExplosionRange");
 
         this.randomTrollMessages.addAll(configuration.getStringList("RandomChatTroll.Messages"));
 

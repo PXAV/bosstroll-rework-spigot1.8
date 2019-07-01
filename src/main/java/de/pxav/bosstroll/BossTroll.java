@@ -86,6 +86,7 @@ public class BossTroll extends JavaPlugin {
         new PlayerQuitListener(this);
         new PlayerInteractListener(this);
         new PlayerHeldItemListener(this);
+        new ProjectileHitListener(this);
 
         this.registerTrolls();
 
