@@ -2,6 +2,7 @@ package de.pxav.bosstroll.trolls.player;
 
 import de.pxav.bosstroll.BossTroll;
 import de.pxav.bosstroll.trolls.templates.ToggleTroll;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -51,7 +52,11 @@ public class LavaBlockTroll implements ToggleTroll, Listener {
         if (!playersAffected.contains(player.getUniqueId()))
             return;
 
-        block.getWorld().getBlockAt(block.getLocation()).setType(Material.LAVA);
+        event.setCancelled(true);
+        Bukkit.getScheduler().runTaskLater(this.main, () -> {
+            player.getWorld().getBlockAt(block.getLocation()).setType(Material.LAVA);
+        }, 3L);
+
 
     }
 }

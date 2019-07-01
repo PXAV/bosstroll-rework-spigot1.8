@@ -2,6 +2,7 @@ package de.pxav.bosstroll.trolls.player;
 
 import de.pxav.bosstroll.BossTroll;
 import de.pxav.bosstroll.trolls.templates.ToggleTroll;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -37,6 +38,8 @@ public class WaterBlockTroll implements ToggleTroll, Listener {
 
     @Override
     public void toggle(Player player) {
+        System.out.println(playersAffected);
+        System.out.println(player.getUniqueId());
         if(playersAffected.contains(player.getUniqueId()))
             playersAffected.remove(player.getUniqueId());
         else playersAffected.add(player.getUniqueId());
@@ -51,7 +54,10 @@ public class WaterBlockTroll implements ToggleTroll, Listener {
         if (!playersAffected.contains(player.getUniqueId()))
             return;
 
-        block.getWorld().getBlockAt(block.getLocation()).setType(Material.WATER);
+        event.setCancelled(true);
+        Bukkit.getScheduler().runTaskLater(this.main, () -> {
+            player.getWorld().getBlockAt(block.getLocation()).setType(Material.WATER);
+        }, 3L);
 
     }
 
