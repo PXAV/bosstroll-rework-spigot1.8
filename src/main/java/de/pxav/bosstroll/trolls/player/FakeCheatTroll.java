@@ -21,7 +21,7 @@ public class FakeCheatTroll implements ToggleTroll, Listener {
     // instance of the main class
     private BossTroll main;
 
-    private List<UUID> playersAffected = new ArrayList<>();
+    private List<UUID> playersAffected;
 
     /**
      * Default constructor.
@@ -31,6 +31,7 @@ public class FakeCheatTroll implements ToggleTroll, Listener {
     public FakeCheatTroll(final BossTroll main) {
         this.main = main;
         this.main.getServer().getPluginManager().registerEvents(this, this.main);
+        this.playersAffected = new ArrayList<>();
     }
 
     @Override

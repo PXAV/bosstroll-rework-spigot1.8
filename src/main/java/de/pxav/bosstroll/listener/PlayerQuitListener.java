@@ -36,12 +36,17 @@ public class PlayerQuitListener implements Listener {
             this.main.getListenerUtil().unregisterListener(player);
             this.main.getPlayerInfo().getPlayersTrolling().remove(player.getUniqueId());
         } else if (this.main.getPlayerInfo().getPlayersTrolling().containsValue(player.getUniqueId())) {
-            final Player trolling = Bukkit.getPlayer(this.main.getPlayerInfo().getTrollingPlayers().get(player.getUniqueId()));
-            this.main.getListenerUtil().unregisterListener(trolling);
-            this.main.getPlayerInfo().getPlayersTrolling().remove(trolling.getUniqueId());
-            this.main.getPlayerInfo().getTrollingPlayers().remove(player.getUniqueId());
-            trolling.sendMessage(this.main.getPrefix() + "§cThe player you are trolling left the server.");
-            trolling.closeInventory();
+
+            this.main.getPlayerInfo().getPlayersTrolling().forEach((key, value) -> {
+                if (value.toString().equalsIgnoreCase(player.getUniqueId().toString())) {
+                    final Player trolling = Bukkit.getPlayer(key);
+                    this.main.getListenerUtil().unregisterListener(trolling);
+                    this.main.getPlayerInfo().getPlayersTrolling().remove(trolling.getUniqueId());
+                    trolling.sendMessage(this.main.getPrefix() + "§cThe player you were trolling left the server.");
+                    trolling.closeInventory();
+                }
+            });
+
         }
     }
 

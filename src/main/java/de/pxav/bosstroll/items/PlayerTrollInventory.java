@@ -154,6 +154,7 @@ public class PlayerTrollInventory {
                         "§7block will appear at that location.",
                 })
                 .addListener(player, inventory.getName(), event -> {
+                    System.out.println(Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId())));
                     event.setCancelled(true);
                     this.main.getWaterBlockTroll().toggle(
                             Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()))

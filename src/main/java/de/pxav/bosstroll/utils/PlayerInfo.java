@@ -21,13 +21,9 @@ public class PlayerInfo {
     // trolling -> trolled
     private Map<UUID, UUID> playersTrolling;
 
-    // trolled -> trolling
-    private Map<UUID, UUID> trollingPlayers;
-
     public PlayerInfo(final BossTroll main) {
         this.main = main;
         this.playersTrolling = new HashMap<>();
-        this.trollingPlayers = new HashMap<>();
     }
 
 }

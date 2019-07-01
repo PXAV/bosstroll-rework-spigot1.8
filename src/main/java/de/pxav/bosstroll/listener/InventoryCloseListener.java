@@ -1,6 +1,7 @@
 package de.pxav.bosstroll.listener;
 
 import de.pxav.bosstroll.BossTroll;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -18,7 +19,7 @@ public class InventoryCloseListener implements Listener {
 
     /**
      * Default constructor. It's recommended to execute this on every server startup.
-     * This constructor also registeres the listener.
+     * This constructor also registers the listener.
      *
      * @param main The instance of the main class.
      */
@@ -28,7 +29,7 @@ public class InventoryCloseListener implements Listener {
     }
 
     @EventHandler
-    public void handleEvent(final InventoryCloseEvent event) {
+    public void handleInventoryClose(final InventoryCloseEvent event) {
 
         if(!(event.getPlayer() instanceof Player))
             return;
@@ -36,8 +37,6 @@ public class InventoryCloseListener implements Listener {
         final Player player = (Player) event.getPlayer();
 
         this.main.getListenerUtil().unregisterListener(player);
-        this.main.getPlayerInfo().getPlayersTrolling().remove(player.getUniqueId());
-        this.main.getPlayerInfo().getTrollingPlayers().remove(player.getUniqueId());
 
     }
 

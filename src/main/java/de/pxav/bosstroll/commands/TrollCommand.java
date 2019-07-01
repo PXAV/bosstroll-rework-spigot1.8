@@ -56,6 +56,7 @@ public class TrollCommand implements CommandExecutor {
                 && !args[0].equalsIgnoreCase("server")
                 && !args[0].equalsIgnoreCase("tools")) {
 
+            this.main.getPlayerInfo().getPlayersTrolling().remove(player.getUniqueId());
             final Player target = Bukkit.getPlayer(args[0]);
 
             if(target == null) {
@@ -64,9 +65,9 @@ public class TrollCommand implements CommandExecutor {
             }
 
             this.main.getPlayerInfo().getPlayersTrolling().put(player.getUniqueId(), target.getUniqueId());
-            this.main.getPlayerInfo().getTrollingPlayers().put(target.getUniqueId(), player.getUniqueId());
-            this.main.getPlayerTrollInventory().open(player);
             player.sendMessage(this.main.getPrefix() + "§7You are now trolling " + target.getName());
+            this.main.getPlayerTrollInventory().open(player);
+
 
             return false;
         }
