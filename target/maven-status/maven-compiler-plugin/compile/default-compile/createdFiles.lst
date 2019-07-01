@@ -4,6 +4,7 @@ de/pxav/bosstroll/trolls/player/LagPlayerConnectionTroll.class
 de/pxav/bosstroll/listener/InventoryCloseListener.class
 de/pxav/bosstroll/trolls/player/LavaBlockTroll.class
 de/pxav/bosstroll/trolls/server/HackMessageTroll.class
+de/pxav/bosstroll/listener/PlayerHeldItemListener.class
 de/pxav/bosstroll/trolls/player/FireRingTroll.class
 de/pxav/bosstroll/items/PlayerTrollInventory.class
 de/pxav/bosstroll/commands/TrollCommand.class
@@ -15,6 +16,7 @@ de/pxav/bosstroll/listener/InventoryClickListener.class
 de/pxav/bosstroll/trolls/server/TeleportAllTroll.class
 de/pxav/bosstroll/utils/MathExercise.class
 de/pxav/bosstroll/trolls/player/MathTroll.class
+de/pxav/bosstroll/trolls/tools/MiniGun.class
 de/pxav/bosstroll/trolls/player/FakeBanTroll.class
 de/pxav/bosstroll/trolls/player/ItemRemoveTroll.class
 de/pxav/bosstroll/BossTroll.class

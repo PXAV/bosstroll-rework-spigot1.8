@@ -48,6 +48,9 @@ public class PlayerQuitListener implements Listener {
             });
 
         }
+
+        this.main.getMiniGun().interrupt(player);
+
     }
 
 }
