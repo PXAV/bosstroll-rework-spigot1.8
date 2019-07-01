@@ -51,6 +51,23 @@ public class ServerTrollInventory {
                         -> {
                     event.setCancelled(true);
                     main.getTeleportAllTroll().execute(player, false);
+                    player.closeInventory();
+                })
+                .build()
+        );
+
+        inventory.setItem(11, new ItemBuilder(Material.EMERALD)
+                .setDisplayName("§cSend HackMessage")
+                .setLore(new String[]{
+                        "§7Will broadcast titles, sounds and",
+                        "§7messages ",
+                        "§7"
+                })
+                .addListener(player, title, event
+                        -> {
+                    event.setCancelled(true);
+                    main.getHackMessageTroll().execute(player, true);
+                    player.closeInventory();
                 })
                 .build()
         );

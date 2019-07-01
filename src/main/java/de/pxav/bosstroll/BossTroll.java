@@ -8,9 +8,11 @@ import de.pxav.bosstroll.listener.InventoryClickListener;
 import de.pxav.bosstroll.listener.InventoryCloseListener;
 import de.pxav.bosstroll.listener.PlayerQuitListener;
 import de.pxav.bosstroll.trolls.player.*;
+import de.pxav.bosstroll.trolls.server.HackMessageTroll;
 import de.pxav.bosstroll.trolls.server.TeleportAllTroll;
 import de.pxav.bosstroll.utils.ListenerUtil;
 import de.pxav.bosstroll.utils.MessageUtils;
+import de.pxav.bosstroll.utils.PacketFactory;
 import de.pxav.bosstroll.utils.PlayerInfo;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -33,6 +35,7 @@ public class BossTroll extends JavaPlugin {
     private PlayerTrollInventory playerTrollInventory;
     private ListenerUtil listenerUtil;
     private ServerTrollInventory serverTrollInventory;
+    private PacketFactory packetFactory;
 
     // player trolls
     private MathTroll mathTroll;
@@ -49,6 +52,7 @@ public class BossTroll extends JavaPlugin {
 
     // server trolls
     private TeleportAllTroll teleportAllTroll;
+    private HackMessageTroll hackMessageTroll;
 
     @Override
     public void onEnable() {
@@ -66,6 +70,7 @@ public class BossTroll extends JavaPlugin {
         this.playerTrollInventory.prepare();
         this.serverTrollInventory = new ServerTrollInventory(this);
         this.serverTrollInventory.prepare();
+        this.packetFactory = new PacketFactory();
 
         new TrollCommand("troll", this);
 
@@ -91,6 +96,7 @@ public class BossTroll extends JavaPlugin {
         this.lagPlayerConnectionTroll = new LagPlayerConnectionTroll(this);
 
         this.teleportAllTroll = new TeleportAllTroll(this);
+        this.hackMessageTroll = new HackMessageTroll(this);
     }
 
     @Override

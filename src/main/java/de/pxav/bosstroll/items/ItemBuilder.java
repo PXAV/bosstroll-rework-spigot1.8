@@ -68,7 +68,7 @@ public class ItemBuilder {
         final ItemMeta fillMeta = fillMaterial.getItemMeta();
         fillMeta.setDisplayName(" ");
         fillMaterial.setItemMeta(fillMeta);
-        return itemStack;
+        return fillMaterial;
     }
 
 }
