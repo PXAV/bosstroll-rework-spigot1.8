@@ -5,6 +5,7 @@ Permissions:
 
 Tools:
   FireBallExplosionRange: 3
+  ExplosionBowRange: 3
 
 RandomChatTroll:
   Messages:

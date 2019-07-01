@@ -56,7 +56,6 @@ public class TrollToolsInventory {
                             .setDisplayName(FIREBALL_TITLE)
                             .build()
                     );
-                    player.closeInventory();
                 })
                 .build()
         );
@@ -74,7 +73,6 @@ public class TrollToolsInventory {
                             .setDisplayName(EXPLOSION_BOW_TITLE)
                             .build()
                     );
-                    player.closeInventory();
                 })
                 .build()
         );
@@ -92,7 +90,6 @@ public class TrollToolsInventory {
                             .setDisplayName(CREEPER_BOW_TITLE)
                             .build()
                     );
-                    player.closeInventory();
                 })
                 .build()
         );
@@ -110,7 +107,6 @@ public class TrollToolsInventory {
                             .setDisplayName(LAVA_BOW_TITLE)
                             .build()
                     );
-                    player.closeInventory();
                 })
                 .build()
         );
@@ -128,7 +124,6 @@ public class TrollToolsInventory {
                             .setDisplayName(WEB_BOW_TITLE)
                             .build()
                     );
-                    player.closeInventory();
                 })
                 .build()
         );
@@ -146,7 +141,6 @@ public class TrollToolsInventory {
                             .setDisplayName(LIGHTNING_BOW_TITLE)
                             .build()
                     );
-                    player.closeInventory();
                 })
                 .build()
         );
@@ -164,7 +158,6 @@ public class TrollToolsInventory {
                             .setDisplayName(FIRE_BOW_TITLE)
                             .build()
                     );
-                    player.closeInventory();
                 })
                 .build()
         );
@@ -180,7 +173,6 @@ public class TrollToolsInventory {
                             .setDisplayName(SNOW_CANON_TITLE)
                             .build()
                     );
-                    player.closeInventory();
                 })
                 .build()
         );
@@ -197,7 +189,6 @@ public class TrollToolsInventory {
                             .setDisplayName(MINI_GUN_TITLE)
                             .build()
                     );
-                    player.closeInventory();
                 })
                 .build()
         );

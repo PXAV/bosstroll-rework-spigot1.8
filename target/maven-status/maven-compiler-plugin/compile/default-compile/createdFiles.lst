@@ -6,6 +6,7 @@ de/pxav/bosstroll/trolls/player/LavaBlockTroll.class
 de/pxav/bosstroll/trolls/server/HackMessageTroll.class
 de/pxav/bosstroll/listener/PlayerHeldItemListener.class
 de/pxav/bosstroll/trolls/player/FireRingTroll.class
+de/pxav/bosstroll/listener/ProjectileHitListener.class
 de/pxav/bosstroll/items/PlayerTrollInventory.class
 de/pxav/bosstroll/commands/TrollCommand.class
 de/pxav/bosstroll/objects/ItemClickListener.class
