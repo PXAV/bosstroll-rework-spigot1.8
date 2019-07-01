@@ -44,7 +44,7 @@ public class ItemRemoveTroll implements ToggleTroll, Listener {
     @EventHandler
     public void handlePlayerInteract(final PlayerInteractEvent event) {
         if (event.getItem() == null
-                || this.playersAffected.contains(event.getPlayer().getUniqueId()))
+                || !this.playersAffected.contains(event.getPlayer().getUniqueId()))
             return;
 
         final Player player = event.getPlayer();
