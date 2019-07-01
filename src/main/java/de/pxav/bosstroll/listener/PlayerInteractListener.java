@@ -4,6 +4,7 @@ import de.pxav.bosstroll.BossTroll;
 import de.pxav.bosstroll.items.TrollToolsInventory;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowball;
 import org.bukkit.event.EventHandler;
@@ -50,6 +51,12 @@ public class PlayerInteractListener implements Listener {
                 && this.isRightClickAction(event.getAction())) {
             this.main.getMiniGun().toggle(player);
             return;
+        }
+
+        if (type == Material.STICK
+                && displayName.equalsIgnoreCase(TrollToolsInventory.FIREBALL_TITLE)
+                && this.isRightClickAction(event.getAction())) {
+            player.launchProjectile(Fireball.class);
         }
 
     }
