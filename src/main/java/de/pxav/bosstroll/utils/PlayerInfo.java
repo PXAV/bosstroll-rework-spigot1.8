@@ -8,7 +8,8 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * A class description goes here.
+ * This class is used to save information about players
+ * and what they are currently doing.
  *
  * @author pxav
  */
@@ -18,7 +19,8 @@ public class PlayerInfo {
 
     private BossTroll main;
 
-    // trolling -> trolled
+    // this map saves which player is currently trolling which victim.
+    // pattern: trolling player -> target
     private Map<UUID, UUID> playersTrolling;
 
     public PlayerInfo(final BossTroll main) {

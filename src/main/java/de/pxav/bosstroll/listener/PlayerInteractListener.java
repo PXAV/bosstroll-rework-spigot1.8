@@ -13,7 +13,8 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 /**
- * A class description goes here.
+ * This class manages the situation when a player interacts
+ * with a block or an item.
  *
  * @author pxav
  */
@@ -26,9 +27,17 @@ public class PlayerInteractListener implements Listener {
         this.main.getServer().getPluginManager().registerEvents(this, this.main);
     }
 
+    /**
+     * This method is called when a player
+     * interacts with a block or item.
+     * @param event the event object, which passes data
+     *              like the clicked item or block.
+     */
     @EventHandler
     public void handlePlayerInteract(PlayerInteractEvent event) {
 
+        // check if the player does not interact with air
+        // and the clicked item has a display name.
         if (event.getItem() == null
                 || event.getItem().getItemMeta() == null
                 || event.getItem().getItemMeta().getDisplayName() == null)
@@ -38,6 +47,7 @@ public class PlayerInteractListener implements Listener {
         String displayName = event.getItem().getItemMeta().getDisplayName();
         Material type = event.getItem().getType();
 
+        // if a player clicks a snow canon, launch a snow ball.
         if (type == Material.IRON_SPADE
                 && displayName.equalsIgnoreCase(TrollToolsInventory.SNOW_CANON_TITLE)
                 && this.isRightClickAction(event.getAction())) {
@@ -46,6 +56,7 @@ public class PlayerInteractListener implements Listener {
             return;
         }
 
+        // if a player interacts with a mini-gun, toggle the mini-gun state (enable or disable)
         if (type == Material.HOPPER
                 && displayName.equalsIgnoreCase(TrollToolsInventory.MINI_GUN_TITLE)
                 && this.isRightClickAction(event.getAction())) {
@@ -53,6 +64,7 @@ public class PlayerInteractListener implements Listener {
             return;
         }
 
+        // if a player interacts with the fire ball stick, then launch a fire ball projectile.
         if (type == Material.STICK
                 && displayName.equalsIgnoreCase(TrollToolsInventory.FIREBALL_TITLE)
                 && this.isRightClickAction(event.getAction())) {
@@ -61,6 +73,11 @@ public class PlayerInteractListener implements Listener {
 
     }
 
+    /**
+     * Checks if the given action is a right click action.
+     * @param action The action you want to check.
+     * @return Does the player executes a right click?
+     */
     private boolean isRightClickAction(Action action) {
         return action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK;
     }

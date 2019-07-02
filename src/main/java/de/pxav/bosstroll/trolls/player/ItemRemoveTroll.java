@@ -12,7 +12,8 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * A class description goes here.
+ * This troll removes every item the player interacts with.
+ * This is especially annoying if you are in a fight.
  *
  * @author pxav
  */

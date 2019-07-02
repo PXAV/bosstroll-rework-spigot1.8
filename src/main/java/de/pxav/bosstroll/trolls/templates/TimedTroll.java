@@ -12,8 +12,20 @@ import org.bukkit.entity.Player;
  */
 public interface TimedTroll {
 
+    /**
+     * This method contains the code that should be
+     * executed when the troll begins.
+     *
+     * @param player The player who is affected from the troll.
+     */
     void begin(final Player player);
 
+    /**
+     * This method contains the code that should be
+     * executed when the troll ends.
+     *
+     * @param player The player who is affected from the troll.
+     */
     void end(final Player player);
 
 }

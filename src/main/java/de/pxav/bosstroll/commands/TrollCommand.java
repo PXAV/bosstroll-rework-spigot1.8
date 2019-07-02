@@ -9,7 +9,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerRegisterChannelEvent;
 
 /**
- * A class description goes here.
+ * This class represents the main command of the plugin. You can access
+ * all troll features (tools, player, server) with this command.
  *
  * @author pxav
  */
@@ -31,6 +32,7 @@ public class TrollCommand implements CommandExecutor {
         this.main.getServer().getPluginCommand(commandString).setExecutor(this);
     }
 
+    @Override
     public boolean onCommand(final CommandSender commandSender, final Command command, final String s, final String[] args) {
 
         // checks if the command sender is a player

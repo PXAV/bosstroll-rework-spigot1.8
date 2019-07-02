@@ -12,7 +12,9 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * A class description goes here.
+ * This troll lets the player move around as if he had cheats enabled.
+ * Then the player is sent to the ground to simulate that the anti cheat
+ * flagged him.
  *
  * @author pxav
  */
@@ -44,11 +46,18 @@ public class FakeCheatTroll implements ToggleTroll, Listener {
         }
     }
 
+
+    /**
+     * This method is called when a player moves.
+     * @param event The event object, which should pass
+     *              things like the player who has moved.
+     */
     @EventHandler
     public void handlePlayerMove(final PlayerMoveEvent event) {
 
         final Player player = event.getPlayer();
 
+        // check if the player is affected by the troll.
         if(!playersAffected.contains(player.getUniqueId())) {
             return;
         }

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A class description goes here.
+ * This troll spawns a ring of fire blocks around the player.
  *
  * @author pxav
  */
@@ -29,6 +29,12 @@ public class FireRingTroll implements UniqueTroll {
         this.main = main;
     }
 
+    /**
+     * Spawns a ring of fire in a range
+     * of 3 blocks around the given player.
+     * @param player The player, whose location
+     *               should be the center of the ring.
+     */
     @Override
     public void execute(Player player) {
 

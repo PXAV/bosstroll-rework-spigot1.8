@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 import java.util.Collections;
 
 /**
- * A class description goes here.
+ * A troll that
  *
  * @author pxav
  */
@@ -25,6 +25,12 @@ public class RandomChatMessageTroll implements UniqueTroll {
         this.main = main;
     }
 
+    /**
+     * This method picks a random message from the config
+     * and sends it under the name of the victim.
+     *
+     * @param player The player who should be affected by the troll.
+     */
     @Override
     public void execute(Player player) {
         Collections.shuffle(this.main.getConfigurationFile().getRandomTrollMessages());

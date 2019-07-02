@@ -5,7 +5,8 @@ import de.pxav.bosstroll.trolls.templates.UniqueTroll;
 import org.bukkit.entity.Player;
 
 /**
- * A class description goes here.
+ * This troll sends a message to the player that
+ * says he is now operator on the server.
  *
  * @author pxav
  */

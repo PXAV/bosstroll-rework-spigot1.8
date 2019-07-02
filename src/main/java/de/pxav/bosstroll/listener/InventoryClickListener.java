@@ -8,7 +8,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import java.util.List;
 
 /**
- * A class description goes here.
+ * This listener class is triggered when a player clicks any item in any inventory.
  *
  * @author pxav
  */
@@ -27,13 +27,23 @@ public class InventoryClickListener implements Listener {
         this.main.getServer().getPluginManager().registerEvents(this, this.main);
     }
 
+    /**
+     * This method is called when a player clicks in any inventory.
+     *
+     * @param event The event object, which passes data like the display name of the clicked item.
+     */
     @EventHandler
     public void handleItemClick(final InventoryClickEvent event) {
+
+        // check if the player actually clicks an item and it has a display name.
         if(event.getInventory() == null
             || event.getCurrentItem() == null
             || event.getCurrentItem().getItemMeta() == null)
                 return;
+
+        // fire all potential listeners added by the ItemBuilder
         this.main.getListenerUtil().fire(event);
+
     }
 
 }

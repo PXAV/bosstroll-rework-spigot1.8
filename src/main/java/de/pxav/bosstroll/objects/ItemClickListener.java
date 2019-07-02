@@ -4,8 +4,11 @@ import de.pxav.bosstroll.items.ItemListener;
 import lombok.Data;
 
 /**
- * A class description goes here.
+ * This object is used to save the needed data
+ * for an item listener.
  *
+ * @see de.pxav.bosstroll.utils.ListenerUtil
+ * @see ItemListener
  * @author pxav
  */
 
@@ -20,11 +23,15 @@ public class ItemClickListener {
         return new ItemClickListenerBuilder();
     }
 
+    /**
+     * This subclass is a builder to build this object easily
+     * without accessing the constructor directly.
+     */
     public static class ItemClickListenerBuilder {
 
         private ItemClickListener itemClickListener;
 
-        public ItemClickListenerBuilder() {
+        ItemClickListenerBuilder() {
             this.itemClickListener = new ItemClickListener();
         }
 

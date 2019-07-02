@@ -4,7 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * A class description goes here.
+ * This class saves a math exercise including
+ * the task and the solution for that very task.
  *
  * @author pxav
  */

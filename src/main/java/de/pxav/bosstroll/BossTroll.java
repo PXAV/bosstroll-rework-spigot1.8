@@ -71,9 +71,7 @@ public class BossTroll extends JavaPlugin {
         this.playerInfo = new PlayerInfo(this);
         this.messageUtils = new MessageUtils(this);
         this.playerTrollInventory = new PlayerTrollInventory(this);
-        this.playerTrollInventory.prepare();
         this.serverTrollInventory = new ServerTrollInventory(this);
-        this.serverTrollInventory.prepare();
         this.trollToolsInventory = new TrollToolsInventory(this);
         this.packetFactory = new PacketFactory();
         this.miniGun = new MiniGun(this);

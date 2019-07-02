@@ -9,7 +9,8 @@ import org.bukkit.entity.Player;
 import java.util.UUID;
 
 /**
- * A class description goes here.
+ * A message that simulates the situation of
+ * a hacker attack.
  *
  * @author pxav
  */
@@ -21,6 +22,12 @@ public class HackMessageTroll implements GlobalUniqueTroll {
         this.main = main;
     }
 
+    /**
+     * Broadcasts the hack message to all players on the server.
+     *
+     * @param initiator     The player who triggered the troll.
+     * @param affectSelf    Should the initiator be affected from the troll as well?
+     */
     @Override
     public void execute(Player initiator, boolean affectSelf) {
         Bukkit.getOnlinePlayers().forEach(current -> {
@@ -31,6 +38,11 @@ public class HackMessageTroll implements GlobalUniqueTroll {
         });
     }
 
+    /**
+     * Sends a message which simulates that the server is hacked.
+     *
+     * @param player The player who should receive this message.
+     */
     private void sendHackMessage(final Player player) {
 
         player.playSound(player.getLocation(), Sound.ENDERDRAGON_HIT, 3, 1);
@@ -55,11 +67,18 @@ public class HackMessageTroll implements GlobalUniqueTroll {
 
     }
 
-    private void hackInformation(Player player, int index) {
+    /**
+     * Sends titles with random UUIDs.
+     *
+     * @param player            The player who should see
+     *                          the titles and hear the sounds.
+     * @param delayInSeconds    How many seconds the action should be delayed.
+     */
+    private void hackInformation(Player player, int delayInSeconds) {
         Bukkit.getScheduler().runTaskLater(this.main, () -> {
             player.playSound(player.getLocation(), Sound.FIRE_IGNITE, 3, 1);
             this.main.getPacketFactory().sendTitlePacket(player, "§c" + UUID.randomUUID(), "§7Hacking information...", 0, 0, 22);
-        }, index * 20L);
+        }, delayInSeconds * 20L);
     }
 
 }

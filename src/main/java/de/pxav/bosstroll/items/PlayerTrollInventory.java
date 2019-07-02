@@ -11,7 +11,8 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 /**
- * A class description goes here.
+ * This class is used to build the inventory to troll
+ * certain players.
  *
  * @author pxav
  */
@@ -29,14 +30,20 @@ public class PlayerTrollInventory {
         this.main = main;
     }
 
-    public void prepare() {
-    }
-
+    /**
+     * Opens the inventory and automatically registers the needed item listeners.
+     * This method depends on the data from {@link de.pxav.bosstroll.utils.PlayerInfo}, so please
+     * insert the troll data before executing this method.
+     *
+     * @param player The player who should see the inventory.
+     */
     public void open(final Player player) {
 
+        // fetch the target from the PlayerInfo
         final Player target = Bukkit.getPlayer(this.main.getPlayerInfo().getPlayersTrolling().get(player.getUniqueId()));
         final Inventory inventory = Bukkit.createInventory(null, 54, "§cTROLL " + target.getName());
 
+        // set fill material into the inventory.
         for (int i = 0; i < inventory.getSize(); i++)
             inventory.setItem(i, new ItemBuilder().buildFillMaterial());
 
@@ -264,8 +271,8 @@ public class PlayerTrollInventory {
                 .build()
         );
 
+        // finally open the inventory to the player
         player.openInventory(inventory);
-
 
     }
 

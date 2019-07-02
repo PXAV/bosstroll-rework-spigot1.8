@@ -13,7 +13,8 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * A class description goes here.
+ * This troll freezes the player so
+ * that they cannot move anymore.
  *
  * @author pxav
  */

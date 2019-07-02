@@ -12,6 +12,11 @@ import org.bukkit.entity.Player;
  */
 public interface ToggleTroll {
 
+    /**
+     * Toggles whether the player should be affected from the troll.
+     *
+     * @param player The player whose state should be toggled.
+     */
     void toggle(final Player player);
 
 }

@@ -9,12 +9,14 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 
 /**
- * A class description goes here.
+ * This listener class manages what should happen
+ * when a player closes their inventory.
  *
  * @author pxav
  */
 public class InventoryCloseListener implements Listener {
 
+    // instance of the main class.
     private BossTroll main;
 
     /**
@@ -28,14 +30,20 @@ public class InventoryCloseListener implements Listener {
         this.main.getServer().getPluginManager().registerEvents(this, this.main);
     }
 
+    /**
+     * This method is called when a player closes his inventory.
+     * @param event The event object, which passes data like the name of the closed inventory.
+     */
     @EventHandler
     public void handleInventoryClose(final InventoryCloseEvent event) {
 
+        // check if a player closes his inventory.
         if(!(event.getPlayer() instanceof Player))
             return;
 
         final Player player = (Player) event.getPlayer();
 
+        // unregister the listeners that are active for the current player.
         this.main.getListenerUtil().unregisterListener(player);
 
     }

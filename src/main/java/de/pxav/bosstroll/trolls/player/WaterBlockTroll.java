@@ -37,6 +37,9 @@ public class WaterBlockTroll implements ToggleTroll, Listener {
         this.playersAffected = new ArrayList<>();
     }
 
+    /**
+     * @param player The player whose state should be toggled.
+     */
     @Override
     public void toggle(Player player) {
         System.out.println(playersAffected);
@@ -46,15 +49,25 @@ public class WaterBlockTroll implements ToggleTroll, Listener {
         else playersAffected.add(player.getUniqueId());
     }
 
+    /**
+     * This method is called when a player breaks a block.
+     * If a player is affected from the troll the block which
+     * they broke will turn into water.
+     *
+     * @param event The event that should be listened for.
+     */
     @EventHandler
     public void handleBlockBreak(final BlockBreakEvent event) {
 
         final Player player = event.getPlayer();
         final Block block = event.getBlock();
 
+        // check if the player is affected by the troll.
         if (!playersAffected.contains(player.getUniqueId()))
             return;
 
+        // replace the block and cancel the event so that
+        // the player does not get any items from the original block.
         event.setCancelled(true);
         Bukkit.getScheduler().runTaskLater(this.main, () -> {
             player.getWorld().getBlockAt(block.getLocation()).setType(Material.WATER);

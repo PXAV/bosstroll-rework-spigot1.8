@@ -8,7 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 /**
- * A class description goes here.
+ * This class manages the case when a player quits the server.
  *
  * @author pxav
  */
@@ -18,7 +18,7 @@ public class PlayerQuitListener implements Listener {
 
     /**
      * Default constructor. It's recommended to execute this on every server startup.
-     * This constructor also registeres the listener.
+     * This constructor also registers the listener.
      *
      * @param main The instance of the main class.
      */
@@ -27,6 +27,12 @@ public class PlayerQuitListener implements Listener {
         this.main.getServer().getPluginManager().registerEvents(this, this.main);
     }
 
+    /**
+     * This method is called when a player quits the server.
+     *
+     * @param event the event object, which passes data
+     *              like the player who left the server.
+     */
     @EventHandler
     public void handleEvent(final PlayerQuitEvent event) {
 
@@ -36,6 +42,9 @@ public class PlayerQuitListener implements Listener {
             this.main.getListenerUtil().unregisterListener(player);
             this.main.getPlayerInfo().getPlayersTrolling().remove(player.getUniqueId());
         } else if (this.main.getPlayerInfo().getPlayersTrolling().containsValue(player.getUniqueId())) {
+
+            // if a troll victim leaves the server, close the troll inventory
+            // and notify the player who trolls the victim.
 
             this.main.getPlayerInfo().getPlayersTrolling().forEach((key, value) -> {
                 if (value.toString().equalsIgnoreCase(player.getUniqueId().toString())) {
@@ -49,6 +58,8 @@ public class PlayerQuitListener implements Listener {
 
         }
 
+        // interrupt the mini-gun tool so that the mini-gun stops
+        // shooting when the player quits the server.
         this.main.getMiniGun().interrupt(player);
 
     }

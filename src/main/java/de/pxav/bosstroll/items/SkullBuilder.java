@@ -7,7 +7,10 @@ import org.bukkit.inventory.meta.SkullMeta;
 import java.util.Arrays;
 
 /**
- * A class description goes here.
+ * This class is similar to the {@code ItemBuilder} with the only
+ * difference that you can build skulls with a certain skull owner
+ * with this class, because it is using {@code SkullMeta} instead
+ * of {@code ItemMeta}.
  *
  * @author pxav
  */

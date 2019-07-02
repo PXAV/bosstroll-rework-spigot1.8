@@ -15,7 +15,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.ProjectileHitEvent;
 
 /**
- * A class description goes here.
+ * This class handles the case when any projectile (Arrow, FireBall, etc.)
+ * hits the ground or a player.
  *
  * @author pxav
  */
@@ -28,11 +29,18 @@ public class ProjectileHitListener implements Listener {
         this.main.getServer().getPluginManager().registerEvents(this, this.main);
     }
 
+    /**
+     * This method is called when a projectile hits the ground or a player.
+     *
+     * @param event The event object, which passes data
+     *              like which projectile has just landed.
+     */
     @EventHandler
     public void handleProjectileHit(ProjectileHitEvent event) {
 
         Projectile projectile = event.getEntity();
 
+        // check if a player has shot this projectile
         if (projectile.getShooter() == null
                 || !(projectile.getShooter() instanceof Player))
             return;
@@ -41,6 +49,7 @@ public class ProjectileHitListener implements Listener {
         Location landingLocation = projectile.getLocation();
         World world = landingLocation.getWorld();
 
+        // if a fire ball lands on the ground, create an explosion
         if (projectile.getType() == EntityType.FIREBALL) {
             landingLocation.getWorld().createExplosion(landingLocation, this.main.getConfigurationFile().getFireBallExplosionRange(), true);
             return;

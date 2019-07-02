@@ -7,7 +7,8 @@ import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 /**
- * A class description goes here.
+ * This troll tells the player that he needs to buy minecraft to be able
+ * to play.
  *
  * @author pxav
  */
@@ -25,6 +26,14 @@ public class DemoScreenTroll implements UniqueTroll {
         this.main = main;
     }
 
+    /**
+     * This method basically sends the player three packets.
+     * The main packet shows a window that says how much time the player
+     * has left until he has to buy minecraft. The other packets
+     * send control help like how the player can move around, etc.
+     *
+     * @param player The player who should receive the packets.
+     */
     @Override
     public void execute(Player player) {
         final CraftPlayer craftPlayer = (CraftPlayer) player;

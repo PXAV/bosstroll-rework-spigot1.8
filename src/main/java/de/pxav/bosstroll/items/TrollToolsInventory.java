@@ -7,7 +7,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
 /**
- * A class description goes here.
+ * This class is used to build the inventory for selecting
+ * the troll tools.
  *
  * @author pxav
  */
@@ -35,6 +36,11 @@ public class TrollToolsInventory {
         this.main = main;
     }
 
+    /**
+     * Opens the inventory and automatically registers the needed item listeners.
+     *
+     * @param player The player who should see the inventory.
+     */
     public void open(final Player player) {
 
         final String title = "§cTroll Tools";

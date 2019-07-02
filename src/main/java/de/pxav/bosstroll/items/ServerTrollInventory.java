@@ -11,7 +11,8 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 /**
- * A class description goes here.
+ * This class is used to build the inventory to troll
+ * the entire server.
  *
  * @author pxav
  */
@@ -29,14 +30,17 @@ public class ServerTrollInventory {
         this.main = main;
     }
 
-    public void prepare() {
-    }
-
+    /**
+     * Opens the inventory and automatically registers the needed item listeners.
+     *
+     * @param player The player who should see the inventory.
+     */
     public void open(final Player player) {
 
         final String title = "§cTroll Server";
         final Inventory inventory = Bukkit.createInventory(null, 27, title);
 
+        // set fill material to the inventory
         for (int i = 0; i < inventory.getSize(); i++)
             inventory.setItem(i, new ItemBuilder().buildFillMaterial());
 
@@ -72,6 +76,7 @@ public class ServerTrollInventory {
                 .build()
         );
 
+        // finally open the inventory to the player.
         player.openInventory(inventory);
 
     }

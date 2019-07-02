@@ -12,6 +12,9 @@ import java.util.List;
 
 /**
  * This class handles the configuration file of the plugin.
+ * This includes:
+ * - Creating and loading the file
+ * - Loading config data to the cache.
  *
  * @author pxav
  */
@@ -53,7 +56,7 @@ public class ConfigurationFile {
     }
 
     /**
-     * Load all settings from the file.
+     * Load all settings from the file and copies them into own fields.
      */
     public void loadSettings() {
 

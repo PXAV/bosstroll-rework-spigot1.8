@@ -9,7 +9,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
 /**
- * A class description goes here.
+ * A troll that teleports all players
+ * to the location of the initiator.
  *
  * @author pxav
  */
@@ -27,6 +28,12 @@ public class TeleportAllTroll implements GlobalUniqueTroll {
         this.main = main;
     }
 
+    /**
+     * Teleports all players on the server to the initiator.
+     *
+     * @param initiator     The player who triggered the troll.
+     * @param affectSelf    Should the initiator be affected from the troll as well?
+     */
     @Override
     public void execute(Player initiator, boolean affectSelf) {
         Bukkit.getOnlinePlayers().forEach(current -> {
