@@ -89,8 +89,7 @@ BossTroll is divided into three major feature categories: *Tools*, *Server* and 
 
 
 
-#### Report Bugs
+#### Contributing
 
-- You can report bugs on my Discord server in #plugin-diskussion. Join the server here: https://discord.gg/AmsYfuH
-- Or contact me on Twitter: @OrigPXAV
+I'd love it, if you contribute to this project. Further information can be found [here](https://github.com/PXAV/bosstroll-rework-spigot1.8/blob/master/CONTRIBUTING.md).
 
