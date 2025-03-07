@@ -1,3 +1,6 @@
+# Important Notice!
+This project is no longer maintained. It does not meet my current coding standards and the code should not be used for educational purposes. The repository will be archived for legacy reasons.
+
 # BossTrollRework - Introduction
 
 BossTroll is a project that was started 2017 by pxav. It allows server admins to troll their players in a new way. Due to own and innovative troll features it gives variety to the common alternatives.
